@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:vendor_app/router/navigation_service.dart';
 
-import '../../register/presentation/register_screen.dart';
 import '../application/login_controller.dart';
 
 class LoginScreen extends ConsumerWidget {
@@ -299,7 +299,7 @@ class LoginScreen extends ConsumerWidget {
                       height: 49.02,
                       child: ElevatedButton(
                         onPressed: () {
-                          context.push("/main_screen");
+                           GoRouter.of(NavigationService.navigatorKey.currentContext!).push('/main_screen');
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF27AE60),
@@ -324,7 +324,8 @@ class LoginScreen extends ConsumerWidget {
                     // Don't Have an Account? Register
                     TextButton(
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisterScreen()));
+                        GoRouter.of(NavigationService.navigatorKey.currentContext!).push('/register_screen');
+                        // NavigationService.navigateTo('/register_screen');
                       },
                       child: RichText(
                         text: const TextSpan(
@@ -371,8 +372,8 @@ class LoginScreen extends ConsumerWidget {
               left: 10,
               child: IconButton(
                 onPressed: () {
-                  if (Navigator.canPop(context)) {
-                    Navigator.pop(context);
+                  if (GoRouter.of(NavigationService.navigatorKey.currentContext!).canPop()) {
+                    GoRouter.of(NavigationService.navigatorKey.currentContext!).pop();
                   }
                 },
                 icon: Image.asset('assets/icons/ic_back_login.png', width: 24, height: 24),

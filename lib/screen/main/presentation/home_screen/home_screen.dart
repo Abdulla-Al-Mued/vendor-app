@@ -1,21 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-void main() => runApp(const MyApp());
+import '../../../../router/navigation_service.dart';
+import '../../../../router/screen_names.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const HomeScreen(),
-    );
-  }
-}
-
-/* ===================================================================
-                      RESPONSIVE  HOME  SCREEN
-   =================================================================== */
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -65,8 +53,6 @@ class HomeScreen extends StatelessWidget {
                   ),
                   /*  header  */
                   _header(scale),
-                  /*  bottom nav  */
-                  _bottomNav(scale),
                 ],
               ),
             );
@@ -125,40 +111,38 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             ),
-            Row(
-              children: [
-                Icon(Icons.shopping_cart,
-                    size: 19.27 * scale, color: const Color(0xFF27AE60)),
-                SizedBox(width: 10 * scale),
-                Stack(
-                  children: [
-                    Icon(Icons.menu,
-                        size: 19.27 * scale, color: const Color(0xFF27AE60)),
-                    Positioned(
-                      right: 0,
-                      top: 0,
-                      child: Container(
-                        width: 8.78 * scale,
-                        height: 8.78 * scale,
-                        decoration: const BoxDecoration(
-                          color: Color(0xFFFD5A5B),
-                          shape: BoxShape.circle,
-                        ),
-                        child: Center(
-                          child: Text(
-                            '0',
-                            style: TextStyle(
-                              fontSize: 4 * scale,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white,
-                            ),
+            InkWell(
+              onTap: (){
+                GoRouter.of(NavigationService.navigatorKey.currentContext!).push(Screens.notificationScreen);
+              },
+              child: Stack(
+                children: [
+                  Icon(Icons.notifications_active_rounded,
+                      size: 19.27 * scale, color: const Color(0xFF27AE60)),
+                  Positioned(
+                    right: 0,
+                    top: 0,
+                    child: Container(
+                      width: 8.78 * scale,
+                      height: 8.78 * scale,
+                      decoration: const BoxDecoration(
+                        color: Color(0xFFFD5A5B),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Center(
+                        child: Text(
+                          '0',
+                          style: TextStyle(
+                            fontSize: 4 * scale,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
                           ),
                         ),
                       ),
                     ),
-                  ],
-                ),
-              ],
+                  ),
+                ],
+              ),
             ),
           ],
         ),
@@ -237,7 +221,6 @@ class HomeScreen extends StatelessWidget {
           SizedBox(height: 16 * scale),
           /*  cards  – sizes scaled  */
           Container(
-            width: 370 * scale,
             padding: EdgeInsets.all(20 * scale),
             decoration: BoxDecoration(
               color: Colors.white,
@@ -285,7 +268,7 @@ class HomeScreen extends StatelessWidget {
           SizedBox(height: 24 * scale),
           /*  completed orders  */
           Container(
-            width: 370 * scale,
+            // width: 370 * scale,
             padding: EdgeInsets.all(20 * scale),
             decoration: BoxDecoration(
               color: Colors.white,
@@ -557,7 +540,12 @@ class HomeScreen extends StatelessWidget {
             spacing: 12 * scale,
             runSpacing: 12 * scale,
             children: [
-              _productCard('Straps Plaid Patchwork...', '\$20.00', '2', scale),
+              InkWell(
+                onTap: (){
+                  GoRouter.of(NavigationService.navigatorKey.currentContext!).push(Screens.productDetails);
+                },
+                  child: _productCard('Straps Plaid Patchwork...', '\$20.00', '2', scale)
+              ),
               _productCard('Copper Alloy inlaid Zir...', '\$9.00', '1', scale),
               _productCard('Bohemiantee Shirt Tops', '\$22.00', '1', scale),
               _productCard('Samsung S24 Ultra', '\$1,150.00', '1', scale),
@@ -590,44 +578,6 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _bottomNav(double scale) {
-    return Positioned(
-      bottom: 0,
-      left: 0,
-      right: 0,
-      child: Container(
-        height: 79 * scale,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(12 * scale),
-            topRight: Radius.circular(12 * scale),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: const Color(0xFFCACACA).withOpacity(0.25),
-              offset: Offset(0, -4 * scale),
-              blurRadius: 49.7 * scale,
-            ),
-            BoxShadow(
-              color: const Color(0xFFCACACA).withOpacity(0.25),
-              offset: Offset(0, 4 * scale),
-              blurRadius: 49.7 * scale,
-            ),
-          ],
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            _navItem(Icons.home, 'Home', true, scale),
-            _navItem(Icons.shopping_bag, 'My Order', false, scale),
-            _navItem(Icons.rotate_left, 'Refund', false, scale),
-            _navItem(Icons.menu, 'Menu', false, scale),
-          ],
-        ),
-      ),
-    );
-  }
 
 /* ------------------------------------------------------------------ */
 /* --------------------  HELPER  WIDGETS  --------------------------- */
@@ -827,32 +777,6 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _navItem(IconData icon, String label, bool isActive, double scale) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(
-          icon,
-          size: 19 * scale,
-          color: isActive
-              ? const Color(0xFF27AE60)
-              : const Color(0xFFBBBBBB).withOpacity(0.73),
-        ),
-        SizedBox(height: 4 * scale),
-        Text(
-          label,
-          style: TextStyle(
-            fontSize: 12 * scale,
-            fontWeight: FontWeight.w500,
-            letterSpacing: -0.24 * scale,
-            color: isActive
-                ? const Color(0xFF27AE60)
-                : const Color(0xFFBBBBBB).withOpacity(0.73),
-          ),
-        ),
-      ],
-    );
-  }
   Widget _orderStatusCard(String count, String label, Color color) {
     return Expanded(
       child: Container(
