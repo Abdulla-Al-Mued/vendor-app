@@ -9,6 +9,8 @@ import 'package:vendor_app/screen/main/presentation/main_screen.dart';
 import '../screen/main/presentation/home_screen/home_screen.dart';
 import '../screen/main/presentation/home_screen/product_details/product_details.dart';
 import '../screen/main/presentation/my_order/presentation/order_details/presentation/order_details.dart';
+import '../screen/main/presentation/refund/log/refund_log.dart';
+import '../screen/main/presentation/refund/refund_approval/refund_approval.dart';
 import '../screen/register/presentation/register_screen.dart';
 
 
@@ -45,6 +47,14 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: Screens.orderDetailsPage,
         builder: (context, state) => const OrderDetailsPage(),
+      ),
+      GoRoute(
+        path: Screens.refundRequestScreen,
+        builder: (context, state) => const RefundRequestScreen(),
+      ),
+      GoRoute(
+        path: Screens.changeLogScreen,
+        builder: (context, state) => const ChangeLogScreen(),
       ),
     ],
   );
