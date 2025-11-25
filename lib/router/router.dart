@@ -8,6 +8,20 @@ import 'package:vendor_app/screen/main/presentation/main_screen.dart';
 
 import '../screen/main/presentation/home_screen/home_screen.dart';
 import '../screen/main/presentation/home_screen/product_details/product_details.dart';
+import '../screen/main/presentation/menu/add_product/add_product_screen.dart';
+import '../screen/main/presentation/menu/bank_info/bank_info_screen.dart';
+import '../screen/main/presentation/menu/clearence/clearance_screen.dart';
+import '../screen/main/presentation/menu/coupons/coupons_screen.dart';
+import '../screen/main/presentation/menu/message/message_screen.dart';
+import '../screen/main/presentation/menu/my_shop/my_shop_screen.dart';
+import '../screen/main/presentation/menu/pos/pos_screen.dart';
+import '../screen/main/presentation/menu/products/products_screen.dart';
+import '../screen/main/presentation/menu/profile/profile_screen.dart';
+import '../screen/main/presentation/menu/restock/restock_screen.dart';
+import '../screen/main/presentation/menu/reviews/reviews_screen.dart';
+import '../screen/main/presentation/menu/settings/settings_screen.dart';
+import '../screen/main/presentation/menu/vat_report/vat_report_screen.dart';
+import '../screen/main/presentation/menu/wallet/wallet_screen.dart';
 import '../screen/main/presentation/my_order/presentation/order_details/presentation/order_details.dart';
 import '../screen/main/presentation/refund/log/refund_log.dart';
 import '../screen/main/presentation/refund/refund_approval/refund_approval.dart';
@@ -55,6 +69,62 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: Screens.changeLogScreen,
         builder: (context, state) => const ChangeLogScreen(),
+      ),
+      GoRoute(
+        path: Screens.profileScreen,
+        builder: (context, state) => const ProfileScreen(),
+      ),
+      GoRoute(
+        path: Screens.myShopScreen,
+        builder: (context, state) => const MyShopScreen(),
+      ),
+      GoRoute(
+        path: Screens.addProductScreen,
+        builder: (context, state) => const AddProductScreen(),
+      ),
+      GoRoute(
+        path: Screens.productsScreen,
+        builder: (context, state) => const ProductsScreen(),
+      ),
+      GoRoute(
+        path: Screens.reviewsScreen,
+        builder: (context, state) => const ReviewsScreen(),
+      ),
+      GoRoute(
+        path: Screens.couponsScreen,
+        builder: (context, state) => const CouponsScreen(),
+      ),
+      GoRoute(
+        path: Screens.posScreen,
+        builder: (context, state) => const PosScreen(),
+      ),
+      GoRoute(
+        path: Screens.settingsScreen,
+        builder: (context, state) => const SettingsScreen(),
+      ),
+      GoRoute(
+        path: Screens.restockScreen,
+        builder: (context, state) => const RestockScreen(),
+      ),
+      GoRoute(
+        path: Screens.clearanceScreen,
+        builder: (context, state) => const ClearanceScreen(),
+      ),
+      GoRoute(
+        path: Screens.walletScreen,
+        builder: (context, state) => const WalletScreen(),
+      ),
+      GoRoute(
+        path: Screens.messageScreen,
+        builder: (context, state) => const MessageScreen(),
+      ),
+      GoRoute(
+        path: Screens.vatReportScreen,
+        builder: (context, state) => const VatReportScreen(),
+      ),
+      GoRoute(
+        path: Screens.bankInfoScreen,
+        builder: (context, state) => const BankInfoScreen(),
       ),
     ],
   );

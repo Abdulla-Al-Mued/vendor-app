@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../asset_helper/ic_img_path.dart';
+import '../../../../../router/navigation_service.dart';
+import '../../../../../router/screen_names.dart';
 
 class MenuScreen extends StatelessWidget {
   MenuScreen({super.key});
 
   final List<_MenuItem> menuItems = [
-    _MenuItem('Profile', user),
-    _MenuItem('My Shop', myCart),
-    _MenuItem('Add product', addToCart),
-    _MenuItem('Products', cubes),
-    _MenuItem('Reviews', customerFeedback),
-    _MenuItem('Coupons', discount),
-    _MenuItem('POS', printer),
-    _MenuItem('Settings', setting),
-    _MenuItem('Restock', stock),
-    _MenuItem('Clearance ...', megaphones),
-    _MenuItem('Wallet', wallet),
-    _MenuItem('Message', chatting),
-    _MenuItem('Vat Report', vat),
-    _MenuItem('Bank Info', bank),
+    _MenuItem('Profile', user, Screens.profileScreen),
+    _MenuItem('My Shop', myCart, Screens.myShopScreen),
+    _MenuItem('Add product', addToCart, Screens.addProductScreen),
+    _MenuItem('Products', cubes, Screens.productsScreen),
+    _MenuItem('Reviews', customerFeedback, Screens.reviewsScreen),
+    _MenuItem('Coupons', discount, Screens.couponsScreen),
+    _MenuItem('POS', printer, Screens.posScreen),
+    _MenuItem('Settings', setting, Screens.settingsScreen),
+    _MenuItem('Restock', stock, Screens.restockScreen),
+    _MenuItem('Clearance ...', megaphones, Screens.clearanceScreen),
+    _MenuItem('Wallet', wallet, Screens.walletScreen),
+    _MenuItem('Message', chatting, Screens.messageScreen),
+    _MenuItem('Vat Report', vat, Screens.vatReportScreen),
+    _MenuItem('Bank Info', bank, Screens.bankInfoScreen),
     _MenuItem('Terms & C...', termsAndConditions),
     _MenuItem('About Us', group),
     _MenuItem('Privacy Poli...', webServer),
@@ -27,7 +29,7 @@ class MenuScreen extends StatelessWidget {
     _MenuItem('Return Poli...', returnIcon),
     _MenuItem('Cancellatio...', file),
     _MenuItem('Setup & star Selling', compliant),
-    _MenuItem('Sign out', logout),
+    _MenuItem('Sign out', logout, Screens.loginScreen),
     _MenuItem('v - 15.5', info),
   ];
 
@@ -81,8 +83,7 @@ class MenuScreen extends StatelessWidget {
                   ),
                   itemCount: menuItems.length,
                   itemBuilder: (context, index) {
-                    return _buildMenuItem(
-                        menuItems[index].title, menuItems[index].iconPath);
+                    return _buildMenuItem(menuItems[index]);
                   },
                 ),
               ),
@@ -93,47 +94,54 @@ class MenuScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildMenuItem(String title, String iconPath) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.all(color: Color(0xFFE3E3E3), width: 0.65),
-        borderRadius: BorderRadius.circular(7.83),
-        boxShadow: [
-          BoxShadow(
-            color: Color(0xFFA4A4A4).withOpacity(0.25),
-            blurRadius: 15.85,
-            offset: Offset(0, 2.61),
-          ),
-        ],
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(
-            iconPath,
-            width: 24,
-            height: 24,
-          ),
-          SizedBox(height: 4),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 4),
-            child: Text(
-              title,
-              textAlign: TextAlign.center,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontFamily: 'Inter',
-                fontWeight: FontWeight.w500,
-                fontSize: 10,
-                height: 1.38,
-                letterSpacing: 0,
-                color: Color(0xFF606060),
+  Widget _buildMenuItem(_MenuItem item) {
+    return GestureDetector(
+      onTap: () {
+        if (item.screenName != null) {
+          NavigationService.navigateTo(item.screenName!);
+        }
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          border: Border.all(color: Color(0xFFE3E3E3), width: 0.65),
+          borderRadius: BorderRadius.circular(7.83),
+          boxShadow: [
+            BoxShadow(
+              color: Color(0xFFA4A4A4).withOpacity(0.25),
+              blurRadius: 15.85,
+              offset: Offset(0, 2.61),
+            ),
+          ],
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              item.iconPath,
+              width: 24,
+              height: 24,
+            ),
+            SizedBox(height: 4),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 4),
+              child: Text(
+                item.title,
+                textAlign: TextAlign.center,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.w500,
+                  fontSize: 10,
+                  height: 1.38,
+                  letterSpacing: 0,
+                  color: Color(0xFF606060),
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -142,14 +150,7 @@ class MenuScreen extends StatelessWidget {
 class _MenuItem {
   final String title;
   final String iconPath;
+  final String? screenName;
 
-  _MenuItem(this.title, this.iconPath);
+  _MenuItem(this.title, this.iconPath, [this.screenName]);
 }
-
-// Example usage in main.dart:
-// void main() {
-//   runApp(MaterialApp(
-//     debugShowCheckedModeBanner: false,
-//     home: MenuScreen(),
-//   ));
-// }
