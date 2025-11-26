@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:vendor_app/router/navigation_service.dart';
+
+import '../../../../../router/screen_names.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -47,7 +50,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 _buildMenuOption(
                   icon: Icons.settings_outlined,
                   title: 'Settings',
-                  onTap: () {},
+                  onTap: () {NavigationService.navigateTo(Screens.settingsPage);},
                   showArrow: true,
                 ),
                 const SizedBox(height: 12),
@@ -55,7 +58,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 _buildMenuOption(
                   icon: Icons.account_balance_outlined,
                   title: 'Bank Info',
-                  onTap: () {},
+                  onTap: () {NavigationService.navigateTo(Screens.bankInfoScreen);},
                   showArrow: true,
                   iconColor: const Color(0xFF27AE60),
                 ),
@@ -154,7 +157,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
               child: IconButton(
               icon: const Icon(Icons.edit, size: 18),
               color: Colors.white,
-              onPressed: () {},
+              onPressed: () {
+                NavigationService.navigateTo(Screens.editProfileScreen);
+              },
             ),),
 
 

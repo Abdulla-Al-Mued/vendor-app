@@ -24,3 +24,4 @@ const String file = "assets/icons/file.png";
 const String compliant = "assets/icons/compliant.png";
 const String logout = "assets/icons/logout.png";
 const String info = "assets/icons/info.png";
+const String editText = "assets/icons/ic_edit_text.png";

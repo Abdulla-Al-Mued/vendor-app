@@ -10,13 +10,16 @@ import '../screen/main/presentation/home_screen/home_screen.dart';
 import '../screen/main/presentation/home_screen/product_details/product_details.dart';
 import '../screen/main/presentation/menu/add_product/add_product_screen.dart';
 import '../screen/main/presentation/menu/bank_info/bank_info_screen.dart';
+import '../screen/main/presentation/menu/bank_info/edit_bank_info/edit_bank_info.dart';
 import '../screen/main/presentation/menu/clearence/clearance_screen.dart';
 import '../screen/main/presentation/menu/coupons/coupons_screen.dart';
 import '../screen/main/presentation/menu/message/message_screen.dart';
 import '../screen/main/presentation/menu/my_shop/my_shop_screen.dart';
 import '../screen/main/presentation/menu/pos/pos_screen.dart';
 import '../screen/main/presentation/menu/products/products_screen.dart';
+import '../screen/main/presentation/menu/profile/edit_profile/edit_profile.dart';
 import '../screen/main/presentation/menu/profile/profile_screen.dart';
+import '../screen/main/presentation/menu/profile/settings/settings.dart';
 import '../screen/main/presentation/menu/restock/restock_screen.dart';
 import '../screen/main/presentation/menu/reviews/reviews_screen.dart';
 import '../screen/main/presentation/menu/settings/settings_screen.dart';
@@ -125,6 +128,18 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: Screens.bankInfoScreen,
         builder: (context, state) => const BankInfoScreen(),
+      ),
+      GoRoute(
+        path: Screens.editProfileScreen,
+        builder: (context, state) => const EditProfileScreen(),
+      ),
+      GoRoute(
+        path: Screens.settingsPage,
+        builder: (context, state) => const SettingsPage(),
+      ),
+      GoRoute(
+        path: Screens.editBankInfoScreen,
+        builder: (context, state) => const EditBankInfoPage(),
       ),
     ],
   );
