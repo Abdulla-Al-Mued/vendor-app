@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vendor_app/router/navigation_service.dart';
+import 'package:vendor_app/screen/main/presentation/menu/profile/widget/confirm_delete_dialog.dart';
 
 import '../../../../../router/screen_names.dart';
 
@@ -67,7 +68,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 _buildMenuOption(
                   icon: Icons.delete_outline,
                   title: 'Delete Account',
-                  onTap: () {},
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (_) => const DeleteAccountDialog(),
+                    );
+
+                  },
                   showArrow: true,
                   iconColor: const Color(0xFFFD5A5B),
                 ),

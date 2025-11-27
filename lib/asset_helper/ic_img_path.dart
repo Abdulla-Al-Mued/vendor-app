@@ -25,3 +25,6 @@ const String compliant = "assets/icons/compliant.png";
 const String logout = "assets/icons/logout.png";
 const String info = "assets/icons/info.png";
 const String editText = "assets/icons/ic_edit_text.png";
+const String deleteProfile = "assets/icons/ic_delete_profile.png";
+const String creditCard = "assets/images/img_credit_card.png";
+const String uploadDocImg = "assets/images/img_cloud_computing.png";

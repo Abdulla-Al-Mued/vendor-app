@@ -14,6 +14,7 @@ import '../screen/main/presentation/menu/bank_info/edit_bank_info/edit_bank_info
 import '../screen/main/presentation/menu/clearence/clearance_screen.dart';
 import '../screen/main/presentation/menu/coupons/coupons_screen.dart';
 import '../screen/main/presentation/menu/message/message_screen.dart';
+import '../screen/main/presentation/menu/my_shop/edit_my_shop/edit_shop.dart';
 import '../screen/main/presentation/menu/my_shop/my_shop_screen.dart';
 import '../screen/main/presentation/menu/pos/pos_screen.dart';
 import '../screen/main/presentation/menu/products/products_screen.dart';
@@ -22,7 +23,6 @@ import '../screen/main/presentation/menu/profile/profile_screen.dart';
 import '../screen/main/presentation/menu/profile/settings/settings.dart';
 import '../screen/main/presentation/menu/restock/restock_screen.dart';
 import '../screen/main/presentation/menu/reviews/reviews_screen.dart';
-import '../screen/main/presentation/menu/settings/settings_screen.dart';
 import '../screen/main/presentation/menu/vat_report/vat_report_screen.dart';
 import '../screen/main/presentation/menu/wallet/wallet_screen.dart';
 import '../screen/main/presentation/my_order/presentation/order_details/presentation/order_details.dart';
@@ -102,10 +102,6 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (context, state) => const PosScreen(),
       ),
       GoRoute(
-        path: Screens.settingsScreen,
-        builder: (context, state) => const SettingsScreen(),
-      ),
-      GoRoute(
         path: Screens.restockScreen,
         builder: (context, state) => const RestockScreen(),
       ),
@@ -140,6 +136,10 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: Screens.editBankInfoScreen,
         builder: (context, state) => const EditBankInfoPage(),
+      ),
+      GoRoute(
+        path: Screens.editShopScreen,
+        builder: (context, state) => const EditShopScreen(),
       ),
     ],
   );

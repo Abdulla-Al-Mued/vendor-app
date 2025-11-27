@@ -15,7 +15,7 @@ class MenuScreen extends StatelessWidget {
     _MenuItem('Reviews', customerFeedback, Screens.reviewsScreen),
     _MenuItem('Coupons', discount, Screens.couponsScreen),
     _MenuItem('POS', printer, Screens.posScreen),
-    _MenuItem('Settings', setting, Screens.settingsScreen),
+    _MenuItem('Settings', setting, Screens.settingsPage),
     _MenuItem('Restock', stock, Screens.restockScreen),
     _MenuItem('Clearance ...', megaphones, Screens.clearanceScreen),
     _MenuItem('Wallet', wallet, Screens.walletScreen),

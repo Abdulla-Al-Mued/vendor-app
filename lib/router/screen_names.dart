@@ -16,7 +16,6 @@ class Screens{
   static String reviewsScreen = '/reviews_screen';
   static String couponsScreen = '/coupons_screen';
   static String posScreen = '/pos_screen';
-  static String settingsScreen = '/settings_page';
   static String settingsPage = '/settings_page';
   static String restockScreen = '/restock_screen';
   static String clearanceScreen = '/clearance_screen';
@@ -25,4 +24,5 @@ class Screens{
   static String vatReportScreen = '/vat_report_screen';
   static String bankInfoScreen = '/bank_info_screen';
   static String editBankInfoScreen = '/edit_bank_info_screen';
+  static String editShopScreen = '/edit_shop_screen';
 }
