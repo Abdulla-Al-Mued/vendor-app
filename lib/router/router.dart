@@ -12,8 +12,9 @@ import '../screen/main/presentation/menu/add_product/add_product_screen.dart';
 import '../screen/main/presentation/menu/bank_info/bank_info_screen.dart';
 import '../screen/main/presentation/menu/bank_info/edit_bank_info/edit_bank_info.dart';
 import '../screen/main/presentation/menu/clearence/clearance_screen.dart';
+import '../screen/main/presentation/menu/coupons/coupon_setup/new_coupon.dart';
 import '../screen/main/presentation/menu/coupons/coupons_screen.dart';
-import '../screen/main/presentation/menu/message/message_screen.dart';
+import '../screen/main/presentation/menu/message/presentation/inbox_screen.dart';
 import '../screen/main/presentation/menu/my_shop/edit_my_shop/edit_shop.dart';
 import '../screen/main/presentation/menu/my_shop/my_shop_screen.dart';
 import '../screen/main/presentation/menu/pos/pos_screen.dart';
@@ -140,6 +141,10 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: Screens.editShopScreen,
         builder: (context, state) => const EditShopScreen(),
+      ),
+      GoRoute(
+        path: Screens.couponSetupScreen,
+        builder: (context, state) => const CouponSetupScreen(),
       ),
     ],
   );

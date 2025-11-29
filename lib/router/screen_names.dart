@@ -25,4 +25,5 @@ class Screens{
   static String bankInfoScreen = '/bank_info_screen';
   static String editBankInfoScreen = '/edit_bank_info_screen';
   static String editShopScreen = '/edit_shop_screen';
+  static String couponSetupScreen = '/coupon_setup_screen';
 }
