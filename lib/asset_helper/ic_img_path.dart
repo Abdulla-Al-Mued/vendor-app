@@ -28,3 +28,4 @@ const String editText = "assets/icons/ic_edit_text.png";
 const String deleteProfile = "assets/icons/ic_delete_profile.png";
 const String creditCard = "assets/images/img_credit_card.png";
 const String uploadDocImg = "assets/images/img_cloud_computing.png";
+const String scannerImg = "assets/images/img_scanner.png";

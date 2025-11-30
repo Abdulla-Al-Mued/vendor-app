@@ -11,13 +11,15 @@ import '../screen/main/presentation/home_screen/product_details/product_details.
 import '../screen/main/presentation/menu/add_product/add_product_screen.dart';
 import '../screen/main/presentation/menu/bank_info/bank_info_screen.dart';
 import '../screen/main/presentation/menu/bank_info/edit_bank_info/edit_bank_info.dart';
+import '../screen/main/presentation/menu/clearence/add_product/add_product.dart';
 import '../screen/main/presentation/menu/clearence/clearance_screen.dart';
 import '../screen/main/presentation/menu/coupons/coupon_setup/new_coupon.dart';
 import '../screen/main/presentation/menu/coupons/coupons_screen.dart';
 import '../screen/main/presentation/menu/message/presentation/inbox_screen.dart';
 import '../screen/main/presentation/menu/my_shop/edit_my_shop/edit_shop.dart';
 import '../screen/main/presentation/menu/my_shop/my_shop_screen.dart';
-import '../screen/main/presentation/menu/pos/pos_screen.dart';
+import '../screen/main/presentation/menu/pos/presentaion/add_new_customer/add_new_customer.dart';
+import '../screen/main/presentation/menu/pos/presentaion/pos_screen.dart';
 import '../screen/main/presentation/menu/products/products_screen.dart';
 import '../screen/main/presentation/menu/profile/edit_profile/edit_profile.dart';
 import '../screen/main/presentation/menu/profile/profile_screen.dart';
@@ -145,6 +147,14 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: Screens.couponSetupScreen,
         builder: (context, state) => const CouponSetupScreen(),
+      ),
+      GoRoute(
+        path: Screens.adCustomerScreen,
+        builder: (context, state) => const AddCustomerScreen(),
+      ),
+      GoRoute(
+        path: Screens.productListScreen,
+        builder: (context, state) => const ProductListScreen(),
       ),
     ],
   );
